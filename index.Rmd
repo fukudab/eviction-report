@@ -1,0 +1,39 @@
+---
+title: "Evictions Report"
+author: "Bryce Fukuda"
+date: "February 7, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = F)
+source("analysis.R") # gives what file you want as a source 
+```
+
+This report focuses on evictions in San Francisco, the dataset contained `r num_evictions` of eviction notices.
+
+## Zip code analysis
+
+Here is a table of the 10 zip codes with the highes tnumber of evictions.
+
+```{r}
+kable(by_zip, col.names = c("Zip Code", "Number of Evictions")) # kable() comes with knitr package, which formats tables
+```
+
+
+## Time Series Analysis
+
+We observed important spikes in eviction notices over time.
+
+```{r}
+month_plot
+```
+
+## Geographic analysis
+
+Here is the spacial distribution of evictions:
+
+```{r warning = F}
+evictions_plot
+```
